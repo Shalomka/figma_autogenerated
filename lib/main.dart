@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 void main() {
@@ -12,7 +11,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
@@ -31,6 +29,7 @@ class MyHomePage extends StatefulWidget {
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
+/// Menu icon widget w. text
 class _MyHomePageState extends State<MyHomePage> {
   Widget _menuIcon(String text, Widget icon) {
     return SizedBox(
@@ -73,6 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            // Original Figma design png
             const Padding(
               padding: EdgeInsets.all(12.0),
               child: Text('Original Figma Design (image width 375):',
@@ -82,6 +82,8 @@ class _MyHomePageState extends State<MyHomePage> {
               'assets/images/BottomNavMenu.png',
             ),
             const SizedBox(height: 48),
+
+            // Original design image scaled to fit actual width of the device
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Text(
@@ -94,6 +96,8 @@ class _MyHomePageState extends State<MyHomePage> {
               width: MediaQuery.of(context).size.width,
             ),
             const SizedBox(height: 48),
+
+            // Flutter implementation using font and icon sizes as in Figma
             const Padding(
               padding: EdgeInsets.all(12.0),
               child: Text(
@@ -106,6 +110,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    // Offers icon
                     _menuIcon(
                         'Offers',
                         SvgPicture.asset(
@@ -114,6 +119,8 @@ class _MyHomePageState extends State<MyHomePage> {
                           width: 24,
                         )),
                     const SizedBox(width: 48),
+
+                    // Plus icon in the middle
                     Container(
                       width: 58,
                       height: 42,
@@ -132,6 +139,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       ),
                     ),
                     const SizedBox(width: 48),
+
+                    // Orders icon
                     _menuIcon(
                         'Orders',
                         SvgPicture.asset(
